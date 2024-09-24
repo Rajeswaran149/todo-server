@@ -49,6 +49,9 @@ router.put('/:id', async (req, res) => {
         if (req.body.status) {
             task.status = req.body.status; // Update status if provided
         }
+        if (req.body.created_at) {
+            task.status = req.body.created_at; // Update created time 
+        }
         
         const updatedTask = await task.save(); // Save changes
         res.json(updatedTask); // Return the updated task
